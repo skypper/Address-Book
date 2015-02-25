@@ -1,0 +1,43 @@
+html {
+    font-family: Arial;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+thead {
+    background-color: #ccc;
+}
+tbody {
+    background-color: #ddd;
+}
+th, td {
+    border: 1px solid #222;
+    padding: 3px;
+}
+#wrapper {
+    width: 700px;
+    margin: 0 auto;
+    background-color: #efefef;
+    border: 1px solid #ccc;
+    border-radius: 5px 5px 5px 5px;
+    padding: 15px;
+}
+#navigation {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+#navigation li {
+    float: left;
+    margin-right: 15px;
+}
+#navigation li a {
+    text-decoration: none;
+}
+#form_errors {
+    color: red;
+}
+#form_success {
+    color: green;
+}

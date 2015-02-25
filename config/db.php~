@@ -1,0 +1,6 @@
+<?php
+$db['server'] = 'localhost';
+$db['user'] = 'root';
+$db['password'] = '563891';
+$db['schema'] = 'address_book';
+?>
