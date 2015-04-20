@@ -1,4 +1,5 @@
 <?php
+
 interface Form {
     const ADD_OPERATION = 0;
     const EDIT_OPERATION = 1;
@@ -8,4 +9,5 @@ interface Form {
     public function getOperation();
     public function setOperation($operation);
 }
+
 ?>

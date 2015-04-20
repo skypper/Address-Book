@@ -21,6 +21,7 @@ class ContactController {
         $contactForm = new ContactForm();
         $contactForm->setSubmitted(Post::get('contact_form') !== null);
         var_dump(empty(Request::get('id')));
+        var_dump(Post::get('contact_form'));
         if (Request::get('id') !== null) {
             $contact = ContactDAO::getContactById(Request::get('id'));
             $operation = Form::EDIT_OPERATION;

@@ -1,3 +1,16 @@
-1. 
-2. superglobals.php isset function
-3. superglobals.php - Which parameter has dominance? (GET/POST)
+# Important
+1. superglobals.php - form submissions don't work
+1. Group Management
+1.1 List of contacts (inherited ones included) for a certain group
+1.2 Create groups and dd contacts to groups
+1.3. Connect groups
+1.3.1 Connected groups inherit contacts
+2. More documentation in code (especially for boilerplate)
+
+# Not-urgent
+1. Display errors (no database connection, class autoloader fails, form submission fails etc)
+2. Automatically generate setters and getters for Form objects
+3. Get rid of static functions (if possible) because in many cases classes are just a collection of functions
+4. Submenu
+
+# Working on: group_dao.php, group_connection_dao.php, 

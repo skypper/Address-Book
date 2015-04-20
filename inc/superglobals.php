@@ -1,27 +1,57 @@
 <?php
 
-class Superglobals implements ArrayAccess {
+interface Container {
 
-    private $values = array();
+    public static function get($key);
 
-    public function offsetExists($offset) {
-        return $this->values[$offset] !== null;
-    }
+    public static function set($key, $value);
+    
+}
 
-    public function offsetGet($offset) {
-        if (array_key_exists($offset, $this->values)) {
-            return $this->values[$offset];
+abstract class Superglobal implements Container {
+
+    private static $values = array();
+
+    public static function get($key) {
+        if (array_key_exists($key, self::$values)) {
+            return self::$values[$key];
         }
     }
 
-    public function offsetSet($offset, $value) {
-        $this->values[$offset] = $value;
+    public static function set($key, $value) {
+        self::$values[$key] = $value;
     }
 
-    public function offsetUnset($offset) {
-        unset($this->values[$offset]);
+    public static function init(array $values) {
+        self::$values = $values;
     }
 
 }
 
+class Get extends Superglobal {
+    public static function set($key, $value) {
+        parent::set($key, $value);
+        $_GET[$key] = $value;
+    }
+}
+
+class Post extends Superglobal {
+    public static function set($key, $value) {
+        parent::set($key, $value);
+        $_POST[$key] = $value;
+    }
+}
+
+class Request extends Superglobal {
+    public static function set($key, $value) {
+        parent::set($key, $value);
+        $_GET[$key] = $_POST[$key] = $value;
+    }
+}
+
+Get::init($_GET);
+Post::init($_POST);
+
+// Which parameter dominates (GET or POST)?
+Request::init(array_merge($_GET, $_POST));
 ?>
